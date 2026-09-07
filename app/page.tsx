@@ -1,4 +1,5 @@
 import HeroLanding from "@/components/hero-landing";
+import ProjectsSection from "@/components/projects-section";
 import { ThemeToggleButton } from "@/components/theme-toggle-button";
 
 export default function Home() {
@@ -8,6 +9,7 @@ export default function Home() {
         <ThemeToggleButton variant="circle" start="top-right" />
       </div>
       <HeroLanding />
+      <ProjectsSection />
     </main>
   );
 }
