@@ -130,7 +130,7 @@ export default function AboutSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.33, 1, 0.68, 1] }}
         >
-          <div className="w-full aspect-[4/5] rounded-2xl overflow-hidden border border-white/10 mb-10 relative">
+          <div className="w-full max-w-[200px] md:max-w-[240px] aspect-[4/5] rounded-2xl overflow-hidden border border-white/10 mb-10 relative">
             <Image
               src="/headshot.jpg"
               alt="Aryan Fulari"
