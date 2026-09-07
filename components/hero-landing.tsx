@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Play, ChevronDown } from 'lucide-react';
-import { motion, useMotionValue, useMotionTemplate } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 interface NavLink {
     label: string;
@@ -24,7 +24,6 @@ interface HeroLandingProps {
     secondaryCtaLabel?: string;
     secondaryCtaHref?: string;
     achievementText?: string;
-    backgroundImage?: string;
 }
 
 export default function HeroLanding({
@@ -48,38 +47,16 @@ export default function HeroLanding({
     secondaryCtaLabel = 'Get in Touch',
     secondaryCtaHref = '#contact',
     achievementText = 'VaariSarthi · IRIS · SIH26038',
-    backgroundImage = 'https://assets.watermelon.sh/hero-5.avif',
 }: HeroLandingProps) {
 
     const line1Words = headingLine1.split(' ');
     const line2Words = headingLine2.split(' ');
 
-    const mouseX = useMotionValue(0);
-    const mouseY = useMotionValue(0);
-
-    function handleMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
-        const { left, top } = currentTarget.getBoundingClientRect();
-        mouseX.set(clientX - left);
-        mouseY.set(clientY - top);
-    }
 
     return (
         <section 
-            className="relative w-full h-screen min-h-[700px] overflow-hidden bg-[#0d0b0f] group"
-            onMouseMove={handleMouseMove}
+            className="relative w-full h-screen min-h-[700px] overflow-hidden group"
         >
-            <motion.div
-                className="absolute inset-0"
-                initial={{ scale: 1.12, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 2.6, ease: [0.25, 0.1, 0.25, 1] }}
-            >
-                <img
-                    src={backgroundImage}
-                    alt="Hero background"
-                    className="absolute inset-0 h-full w-full object-cover object-center"
-                />
-            </motion.div>
 
             <div className="absolute inset-0 bg-linear-to-t from-[#0d0b0f]/80 via-transparent to-[#0d0b0f]/40" />
             <div className="absolute inset-0 bg-linear-to-r from-[#0d0b0f]/60 via-transparent to-transparent" />
@@ -93,18 +70,6 @@ export default function HeroLanding({
                 }}
             />
 
-            <motion.div
-                className="pointer-events-none absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                style={{
-                    background: useMotionTemplate`
-                        radial-gradient(
-                            600px circle at ${mouseX}px ${mouseY}px,
-                            rgba(255, 255, 255, 0.05),
-                            transparent 80%
-                        )
-                    `,
-                }}
-            />
 
             <div className="relative z-10 flex flex-col h-full w-full">
 
