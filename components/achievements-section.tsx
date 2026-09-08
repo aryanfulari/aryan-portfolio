@@ -119,27 +119,25 @@ export default function AchievementsSection() {
         })}
       </div>
 
-      <div className="max-w-3xl space-y-8">
+      <div className="space-y-0">
         {roles.map((role, i) => (
           <motion.div
             key={role.title}
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.5, delay: i * 0.08 }}
-            className="flex gap-4 border-b border-white/5 pb-8 last:border-none last:pb-0"
+            className="group grid grid-cols-1 md:grid-cols-[80px_1fr_1.4fr] gap-4 md:gap-10 py-8 border-b border-white/5 last:border-none hover:bg-white/[0.015] transition-colors duration-300 -mx-4 px-4 rounded-lg"
           >
-            <span className="text-white/30 text-sm font-mono shrink-0 pt-0.5">
+            <span className="text-white/25 text-sm font-mono">
               {String(i + 1).padStart(2, "0")}
             </span>
-            <div>
-              <h3 className="text-white text-lg md:text-xl font-medium mb-2">
-                {role.title}
-              </h3>
-              <p className="text-white/60 text-base md:text-lg leading-relaxed">
-                {role.description}
-              </p>
-            </div>
+            <h3 className="text-white text-xl md:text-2xl font-medium leading-snug">
+              {role.title}
+            </h3>
+            <p className="text-white/55 text-base md:text-lg leading-relaxed">
+              {role.description}
+            </p>
           </motion.div>
         ))}
       </div>

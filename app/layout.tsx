@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Noto_Sans_Devanagari, Noto_Sans_Kannada } from "next/font/google";
+import { Geist, Geist_Mono, Noto_Sans_Devanagari, Noto_Sans_Kannada, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./theme-provider";
 import Preloader from "@/components/preloader";
@@ -8,6 +8,12 @@ import SideRays from "@/components/side-rays";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+});
+
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 const geistMono = Geist_Mono({
@@ -40,7 +46,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${notoDevanagari.variable} ${notoKannada.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${notoDevanagari.variable} ${notoKannada.variable} ${spaceGrotesk.variable} antialiased`}
       >
         <Preloader />
         <div className="fixed inset-0 -z-10 bg-[#0a0a0a]">
