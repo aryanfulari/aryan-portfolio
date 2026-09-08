@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
+import VariableProximity from "@/components/variable-proximity";
 import SpecularButton from "@/components/specular-button";
 import SmoothInput from "@/components/smooth-input";
 import { Input } from "@/components/ui/input";
@@ -10,6 +11,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MdPerson, MdMailOutline, MdLocationOn } from "react-icons/md";
 
 export default function ContactSection() {
+  const headingRef = useRef<HTMLDivElement>(null);
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [details, setDetails] = useState("");
@@ -42,9 +44,16 @@ export default function ContactSection() {
       <div className="relative z-10 container px-4 md:px-6 mx-auto">
         <div className="mx-auto mb-12 flex max-w-3xl flex-col items-center text-center">
 
-          <h2 className="text-white mb-6 text-3xl font-light tracking-tight md:text-4xl lg:text-5xl">
-            Let&apos;s build something amazing
-          </h2>
+          <div ref={headingRef} className="mb-6">
+            <VariableProximity
+              label="Let's build something amazing"
+              containerRef={headingRef}
+              radius={140}
+              fromWeight={300}
+              toWeight={700}
+              className="text-white text-3xl md:text-4xl lg:text-5xl tracking-tight"
+            />
+          </div>
           <p className="text-white/55 mx-auto max-w-2xl text-lg leading-relaxed md:text-xl">
             Have a project in mind, a question, or just want to connect?
             <br />

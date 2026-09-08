@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
+import VariableProximity from "@/components/variable-proximity";
 import SplitFlapText from "@/components/split-flap-text";
 import { projectCards } from "@/components/projects-section";
 
@@ -50,6 +51,7 @@ const stats: Stat[] = [
 ];
 
 export default function AchievementsSection() {
+  const headingRef = useRef<HTMLDivElement>(null);
   const [entered, setEntered] = useState<boolean[]>(() => stats.map(() => false));
 
   const markEntered = (index: number) => {
@@ -64,9 +66,16 @@ export default function AchievementsSection() {
   return (
     <section id="achievements" className="relative w-full px-6 md:px-10 lg:px-16 py-16 md:py-24 scroll-mt-24">
       <div className="max-w-3xl mb-14 md:mb-20">
-        <h2 className="text-white text-3xl md:text-5xl font-light tracking-tight mb-4">
-          Achievements and Experience
-        </h2>
+        <div ref={headingRef} className="mb-4">
+          <VariableProximity
+            label="Achievements and Experience"
+            containerRef={headingRef}
+            radius={140}
+            fromWeight={300}
+            toWeight={700}
+            className="text-white text-3xl md:text-5xl tracking-tight"
+          />
+        </div>
         <p className="text-white/55 text-base md:text-lg leading-relaxed max-w-lg">
           A snapshot of hackathon results, leadership roles, and the impact behind them.
         </p>

@@ -42,6 +42,8 @@ export default function Preloader() {
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
+    window.history.scrollRestoration = "manual";
+    window.scrollTo(0, 0);
 
     let wordIndex = 0;
     let direction = 1;

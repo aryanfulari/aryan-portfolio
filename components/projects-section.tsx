@@ -1,6 +1,8 @@
 "use client";
 
+import { useRef } from "react";
 import { motion } from "framer-motion";
+import VariableProximity from "@/components/variable-proximity";
 
 export interface ProjectCard {
   title: string;
@@ -30,12 +32,21 @@ export const projectCards: ProjectCard[] = [
 ];
 
 export default function ProjectsSection() {
+  const headingRef = useRef<HTMLDivElement>(null);
+
   return (
     <section id="projects" className="relative w-full px-6 md:px-10 lg:px-16 py-16 md:py-24 scroll-mt-24">
       <div className="max-w-3xl mb-14 md:mb-20">
-        <h2 className="text-white text-3xl md:text-5xl font-light tracking-tight mb-4">
-          Projects
-        </h2>
+        <div ref={headingRef} className="mb-4">
+          <VariableProximity
+            label="Projects"
+            containerRef={headingRef}
+            radius={140}
+            fromWeight={300}
+            toWeight={700}
+            className="text-white text-3xl md:text-5xl tracking-tight"
+          />
+        </div>
         <p className="text-white/55 text-base md:text-lg leading-relaxed max-w-lg">
           A few things I&apos;ve worked on and contributing to.
         </p>

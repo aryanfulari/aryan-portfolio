@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import PillNav from "@/components/pill-nav";
+import GlassNav from "@/components/glass-nav";
 
 const navItems = [
   { label: "About", href: "#about" },
@@ -38,18 +38,5 @@ export default function Navbar() {
     return () => observer.disconnect();
   }, []);
 
-  return (
-    <PillNav
-      logo="/logo.svg"
-      logoAlt="Aryan Fulari"
-      items={navItems}
-      activeHref={activeHref}
-      baseColor="#000000"
-      pillColor="#ffffff"
-      hoveredPillTextColor="#ffffff"
-      pillTextColor="#000000"
-      ease="power2.out"
-      initialLoadAnimation
-    />
-  );
+  return <GlassNav items={navItems} activeHref={activeHref} />;
 }

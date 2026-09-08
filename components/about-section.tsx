@@ -1,6 +1,8 @@
 "use client";
 
+import { useRef } from "react";
 import { motion } from "framer-motion";
+import VariableProximity from "@/components/variable-proximity";
 import Image from "next/image";
 import { Download } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
@@ -15,12 +17,13 @@ const techStack = [
 
 const stats = [
   { value: "8.43", label: "Current CGPA (FY)" },
-  { value: "1", label: "Patent Pending" },
   { value: String(projectCards.length), label: "Projects Shipped" },
   { value: String(leadershipRoles.length), label: "Leadership Roles" },
 ];
 
 export default function AboutSection() {
+  const headingRef = useRef<HTMLDivElement>(null);
+
   return (
     <section id="about" className="relative w-full min-h-screen flex flex-col justify-center px-6 md:px-10 lg:px-16 pt-24 pb-16 scroll-mt-24">
       <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr_320px] gap-10 lg:gap-14 items-stretch w-full">
@@ -54,9 +57,16 @@ export default function AboutSection() {
           transition={{ duration: 0.8, delay: 0.15, ease: [0.33, 1, 0.68, 1] }}
           className="flex flex-col justify-center"
         >
-          <h1 className="text-white text-5xl md:text-7xl font-light tracking-tight mb-8">
-            About Me
-          </h1>
+          <div ref={headingRef} className="mb-8">
+            <VariableProximity
+              label="About Me"
+              containerRef={headingRef}
+              radius={140}
+              fromWeight={300}
+              toWeight={700}
+              className="text-white text-5xl md:text-7xl tracking-tight"
+            />
+          </div>
           <p className="text-white/60 text-lg md:text-xl leading-relaxed mb-4">
             I&apos;m a second-year B.Tech IT student at AISSMS Institute of
             Information Technology, Pune, building things at the
@@ -99,7 +109,7 @@ export default function AboutSection() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.4 + i * 0.08 }}
-              className="rounded-2xl border border-white/10 bg-white/[0.02] p-4 flex flex-col items-center justify-center text-center"
+              className={`rounded-2xl border border-white/10 bg-white/[0.02] p-4 flex flex-col items-center justify-center text-center ${i === 0 ? "col-span-2" : ""}`}
             >
               <div className="text-white text-3xl md:text-4xl font-light tracking-tight mb-2">
                 {stat.value}
