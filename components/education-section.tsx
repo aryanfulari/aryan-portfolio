@@ -38,12 +38,12 @@ const education: EducationEntry[] = [
 
 export default function EducationSection() {
   return (
-    <section id="education" className="relative w-full px-6 md:px-10 lg:px-16 py-24 md:py-32 scroll-mt-24">
+    <section id="education" className="relative w-full px-6 md:px-10 lg:px-16 py-16 md:py-24 scroll-mt-24">
       <div className="max-w-3xl mb-14 md:mb-20">
         <h2 className="text-white text-3xl md:text-5xl font-light tracking-tight mb-4">
           Education
         </h2>
-        <p className="text-white/55 text-sm md:text-base leading-relaxed max-w-lg">
+        <p className="text-white/55 text-base md:text-lg leading-relaxed max-w-lg">
           My academic background, from school through my current degree.
           Hover a card to see achievements from that period.
         </p>
@@ -60,11 +60,11 @@ export default function EducationSection() {
             className="group relative rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-7 min-h-[220px] overflow-hidden transition-colors duration-300 hover:border-white/25 hover:bg-white/[0.04]"
           >
             <div className="relative z-10 transition-opacity duration-300 group-hover:opacity-0">
-              <h3 className="text-white text-lg md:text-xl font-medium mb-1.5">
+              <h3 className="text-white text-xl md:text-2xl font-medium mb-1.5">
                 {entry.institution}
               </h3>
-              <p className="text-white/60 text-sm mb-4">{entry.degree}</p>
-              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-white/40 text-xs">
+              <p className="text-white/60 text-base mb-4">{entry.degree}</p>
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-white/50 text-sm md:text-base">
                 {entry.years && <span>{entry.years}</span>}
                 <span className="text-white/50">{entry.grade}</span>
               </div>
@@ -77,7 +77,7 @@ export default function EducationSection() {
               {entry.achievements.length > 0 && (
                 <ul className="space-y-3">
                   {entry.achievements.map((a) => (
-                    <li key={a} className="flex items-start gap-2.5 text-white/85 text-sm leading-snug">
+                    <li key={a} className="flex items-start gap-2.5 text-white/85 text-base leading-snug">
                       <span className="w-1.5 h-1.5 rounded-full bg-white/40 shrink-0 mt-1.5" />
                       {a}
                     </li>

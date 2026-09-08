@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Noto_Sans_Devanagari, Noto_Sans_Kannada } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./theme-provider";
-import Threads from "@/components/threads";
+import Preloader from "@/components/preloader";
+import SideRays from "@/components/side-rays";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -12,6 +13,18 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const notoDevanagari = Noto_Sans_Devanagari({
+  variable: "--font-devanagari",
+  subsets: ["devanagari"],
+  weight: ["400", "700"],
+});
+
+const notoKannada = Noto_Sans_Kannada({
+  variable: "--font-kannada",
+  subsets: ["kannada"],
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -27,10 +40,23 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${notoDevanagari.variable} ${notoKannada.variable} antialiased`}
       >
+        <Preloader />
         <div className="fixed inset-0 -z-10 bg-[#0a0a0a]">
-          <Threads color={[0.55, 0.5, 0.95]} amplitude={1.1} distance={0.6} enableMouseInteraction={true} />
+          <SideRays
+            speed={3.6}
+            rayColor1="#e9dfbe"
+            rayColor2="#67a1e1"
+            intensity={1.7}
+            spread={2.5}
+            origin="top-right"
+            tilt={30}
+            saturation={0.85}
+            blend={0.85}
+            falloff={1.6}
+            opacity={1}
+          />
         </div>
         <ThemeProvider>{children}</ThemeProvider>
       </body>

@@ -17,7 +17,7 @@ interface Role {
   description: string;
 }
 
-const roles: Role[] = [
+export const roles: Role[] = [
   {
     title: "Infinix Campus Connect — Event Main Coordinator",
     description: "Led a full-day partnership event with Infinix and Call of Duty Mobile — 500+ registrations, 50+ pieces of social content, and ₹10,000 secured as a goodwill gesture. Biggest event under the current student body's tenure.",
@@ -62,12 +62,12 @@ export default function AchievementsSection() {
   };
 
   return (
-    <section id="achievements" className="relative w-full px-6 md:px-10 lg:px-16 py-24 md:py-32 scroll-mt-24">
+    <section id="achievements" className="relative w-full px-6 md:px-10 lg:px-16 py-16 md:py-24 scroll-mt-24">
       <div className="max-w-3xl mb-14 md:mb-20">
         <h2 className="text-white text-3xl md:text-5xl font-light tracking-tight mb-4">
-          Achievements
+          Achievements and Experience
         </h2>
-        <p className="text-white/55 text-sm md:text-base leading-relaxed max-w-lg">
+        <p className="text-white/55 text-base md:text-lg leading-relaxed max-w-lg">
           A snapshot of hackathon results, leadership roles, and the impact behind them.
         </p>
       </div>
@@ -110,7 +110,7 @@ export default function AchievementsSection() {
                     />
                   )}
                 </div>
-                <p className="text-white/50 text-xs md:text-sm leading-snug">
+                <p className="text-white/60 text-sm md:text-base leading-snug">
                   {stat.label}
                 </p>
               </CardWrapper>
@@ -133,10 +133,10 @@ export default function AchievementsSection() {
               {String(i + 1).padStart(2, "0")}
             </span>
             <div>
-              <h3 className="text-white text-base md:text-lg font-medium mb-2">
+              <h3 className="text-white text-lg md:text-xl font-medium mb-2">
                 {role.title}
               </h3>
-              <p className="text-white/55 text-sm md:text-[15px] leading-relaxed">
+              <p className="text-white/60 text-base md:text-lg leading-relaxed">
                 {role.description}
               </p>
             </div>
