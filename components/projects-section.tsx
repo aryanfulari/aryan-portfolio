@@ -26,7 +26,7 @@ export const projectCards: ProjectCard[] = [
   {
     title: "Agent Passport",
     description:
-      "A Monad Blitz hackathon project — placeholder description, tell me what this one actually does and I'll update it.",
+      "A dual-agent system where a Worker Agent completes tasks and a Judge Agent evaluates them, permanently logging scores and feedback on the Monad Blockchain — creating a verifiable, immutable performance record for AI agents. Built at Monad Blitz.",
     href: "https://github.com/aryanfulari/Monad-Lisa",
   },
 ];
