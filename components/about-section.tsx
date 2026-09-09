@@ -18,7 +18,7 @@ const techStack = [
 const stats = [
   { value: "8.43", label: "Current CGPA" },
   { value: String(projectCards.length), label: "Projects Shipped" },
-  { value: String(leadershipRoles.length), label: "Leadership Roles" },
+  { value: "4", label: "Leadership Roles" },
 ];
 
 export default function AboutSection() {
