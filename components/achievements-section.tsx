@@ -47,7 +47,7 @@ const stats: Stat[] = [
   { value: "FINALIST", label: "Out of 450+ teams — Varithon 2026 (VaariSarthi)", charset: "alpha", href: "/varithon-finalist-certificate.pdf" },
   { value: "1", label: "Patent pending — IRIS, Ideathon (AISSMS IOIT)", charset: "numeric" },
   { value: String(projectCards.length), label: "Projects shipped — click to view", charset: "numeric", href: "#projects" },
-  { value: String(roles.length), label: "Leadership roles held across campus", charset: "numeric" },
+  { value: "4", label: "Leadership roles held across campus", charset: "numeric" },
 ];
 
 export default function AchievementsSection() {
