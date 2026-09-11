@@ -39,6 +39,14 @@ export const roles: Role[] = [
     title: "Training & Placement Office, AISSMS IOIT — Joint Secretary (Innovative Domain)",
     description: "Anchor and coordinator for T&P-led initiatives and events.",
   },
+  {
+    title: "Open Source Contributor — OSCI",
+    description: "Contributing to open-source projects through OSCI (Open Source Connect India).",
+  },
+  {
+    title: "NSSC Campus Ambassador — IIT Kharagpur",
+    description: "Campus Ambassador for the National Students' Space Challenge, an initiative by IIT Kharagpur.",
+  },
 ];
 
 const stats: Stat[] = [
